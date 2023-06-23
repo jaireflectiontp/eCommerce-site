@@ -5,7 +5,6 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import Product from "./components/Product";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dhasboard from "./components/Dhasboard";
 import Cart from "./components/Cart";
