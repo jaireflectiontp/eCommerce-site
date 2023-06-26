@@ -3,13 +3,13 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
-import { remove } from "../store/slices/cartSlice";
+import { removeFromCart } from "../store/slices/cartSlice";
 const Cart = () => {
   const cartProduct = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const removeTo = (id) => {
+  const removeProduct = (id) => {
     console.log(id);
-    dispatch(remove(id));
+    dispatch(removeFromCart(id));
   };
   const productCard = cartProduct.map((product) => (
     <div className="col-md-3" style={{ marginBottom: "20px" }}>
@@ -28,7 +28,7 @@ const Cart = () => {
           </Card.Text>
         </Card.Body>
         <Card.Footer style={{ backgroundColor: "#fff" }}>
-          <Button variant="danger" onClick={() => removeTo(product.id)}>
+          <Button variant="danger" onClick={() => removeProduct(product.id)}>
             remove to cart
           </Button>
         </Card.Footer>

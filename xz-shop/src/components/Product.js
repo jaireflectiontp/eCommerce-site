@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
-import { add } from "../store/slices/cartSlice";
+import { addToCart } from "../store/slices/cartSlice";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ const Product = () => {
     fetchData();
   }, []);
   console.log(products);
-  const addToCart = (product) => {
-    dispatch(add(product));
+  const addProduct = (product) => {
+    dispatch(addToCart(product));
   };
   const productCard = products.map((product) => (
     <div className="col-md-3" style={{ marginBottom: "20px" }}>
@@ -42,7 +42,7 @@ const Product = () => {
           </Card.Text>
         </Card.Body>
         <Card.Footer style={{ backgroundColor: "#fff" }}>
-          <Button variant="primary" onClick={() => addToCart(product)}>
+          <Button variant="primary" onClick={() => addProduct(product)}>
             Add to cart
           </Button>
         </Card.Footer>

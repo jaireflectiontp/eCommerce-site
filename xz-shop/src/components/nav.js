@@ -6,14 +6,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useSelector } from "react-redux";
-const Navt = () => {
+import logo from "../assets/logo.png";
+const NavigationBar = () => {
   const pro = useSelector((state) => state.cart);
   return (
     <nav>
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            React-Bootstrap
+            <img src={logo} alt="logo" style={{ width: "150px" }} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -33,11 +34,17 @@ const Navt = () => {
             </Form>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
+            <Navbar.Text className="mx-2">
               Signed in as: <a href="#login">Mark Otto</a>
             </Navbar.Text>
-            <Nav.Link as={Link} to="/cart">
+            <Nav.Link className="mx-2" as={Link} to="/cart">
               Cart{pro.length}
+            </Nav.Link>
+            <Nav.Link className="mx-2" as={Link} to="/signin">
+              login
+            </Nav.Link>
+            <Nav.Link className="mx-2" as={Link} to="/signup">
+              signp
             </Nav.Link>
           </Navbar.Collapse>
         </Container>
@@ -46,4 +53,4 @@ const Navt = () => {
   );
 };
 
-export default Navt;
+export default NavigationBar;
