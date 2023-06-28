@@ -6,10 +6,21 @@ import Row from "react-bootstrap/Row";
 import * as formik from "formik";
 import * as yup from "yup";
 import "./form.scss";
-import { useDispatch } from "react-redux";
-import { registerUser } from "../../store/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { pageLoad, registerUser } from "../../store/slices/formSlice";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 function FormComponent() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userList = localStorage.getItem("userList")
+      ? JSON.parse(localStorage.getItem("userList"))
+      : [];
+    dispatch(pageLoad(userList));
+  });
 
   const { Formik } = formik;
 
@@ -41,6 +52,7 @@ function FormComponent() {
 
   const onSubmit = (values) => {
     dispatch(registerUser(values));
+    navigate("/signin");
   };
 
   return (

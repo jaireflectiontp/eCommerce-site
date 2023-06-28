@@ -2,16 +2,28 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const formSlice = createSlice({
   name: "formSlice",
-  initialState: [],
+  initialState: {
+    userList: null,
+    loggedUser: null,
+  },
+
   reducers: {
-    registerUser(state, action) {
-      state.push(action.payload);
-      localStorage.setItem("users", JSON.stringify(state));
+    pageLoad(state, action) {
+      state.userList = action.payload;
+      console.log("pageLoaded", state.userList);
     },
 
-    loginUser(state, action) {},
+    registerUser(state, action) {
+      state.userList.push(action.payload);
+      localStorage.setItem("userList", JSON.stringify(state.userList));
+    },
+
+    activeUser(state, action) {
+      state.loggedUser = action.payload;
+      localStorage.setItem("activeUserData", JSON.stringify(action.payload));
+    },
   },
 });
 
-export const { registerUser, loginUser } = formSlice.actions;
+export const { registerUser, activeUser, pageLoad } = formSlice.actions;
 export default formSlice.reducer;

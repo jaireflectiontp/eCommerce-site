@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,9 +7,16 @@ import Row from "react-bootstrap/Row";
 import * as formik from "formik";
 import * as yup from "yup";
 import "./form.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { activeUser } from "../../store/slices/formSlice";
+import { useNavigate } from "react-router-dom";
 const SignIn = () => {
-  const { Formik } = formik;
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState();
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.form);
 
+  const { Formik } = formik;
   const schema = yup.object().shape({
     username: yup.string().required(),
     password: yup.string().required(),
@@ -20,7 +27,19 @@ const SignIn = () => {
     password: "",
   };
   const onSubmit = (values) => {
-    console.log(values);
+    setUserData(users.userList);
+    console.log("userData", userData);
+    userData?.map((getUser) => {
+      console.log(getUser);
+      if (
+        getUser.username === values.username &&
+        getUser.password === values.password
+      ) {
+        sessionStorage.username = values.username;
+        dispatch(activeUser(getUser));
+        navigate("/");
+      }
+    });
   };
   return (
     <>
@@ -37,7 +56,7 @@ const SignIn = () => {
         >
           {({ handleSubmit, handleChange, values, touched, errors }) => (
             <Form noValidate onSubmit={handleSubmit}>
-              <Row className="mb-4">
+              <Row className="mb-5">
                 <Form.Group
                   as={Col}
                   md="12"
