@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -101,7 +103,11 @@ const SignIn = () => {
                   </Form.Control.Feedback>
                 </Form.Group>
               </Row>
-
+              <Row>
+                <Nav.Link className="mx-2" as={Link} to="/signup">
+                  signp
+                </Nav.Link>
+              </Row>
               <Button type="submit">SignUp</Button>
             </Form>
           )}
