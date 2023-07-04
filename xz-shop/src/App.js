@@ -9,8 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Dhasboard from "./components/Dhasboard";
 import Cart from "./components/Cart";
 import Homepage from "./components/Homepage";
-import SignIn from "./components/Forms/SignIn";
-import SignUp from "./components/Forms/SignUp";
+import SignIn from "./components/Forms/LoginForm/SignIn";
+import SignUp from "./components/Forms/RegistrationForm/SignUp"
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Provider } from "react-redux";
-import store from "../store/Store";
+import store from "../services/store";
 import { Outlet } from "react-router-dom";
 import NavigationBar from "./nav";
 const Homepage = () => {

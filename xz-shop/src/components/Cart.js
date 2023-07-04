@@ -3,7 +3,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../store/slices/cartSlice";
+import { removeFromCart } from "../services/slices/cartSlice";
 const Cart = () => {
   const cartProduct = useSelector((state) => state.cart);
   const dispatch = useDispatch();

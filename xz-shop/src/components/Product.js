@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../store/slices/cartSlice";
+import { addToCart } from "../services/slices/cartSlice";
 
 const Product = () => {
   const dispatch = useDispatch();

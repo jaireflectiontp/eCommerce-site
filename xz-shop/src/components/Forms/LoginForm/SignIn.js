@@ -8,9 +8,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import * as formik from "formik";
 import * as yup from "yup";
-import "./form.scss";
+import "../../../styles/form.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { activeUser } from "../../store/slices/formSlice";
+import { activeUser } from "../../../services/slices/formSlice";
 import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const navigate = useNavigate();

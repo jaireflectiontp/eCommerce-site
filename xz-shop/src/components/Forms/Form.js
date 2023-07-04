@@ -5,9 +5,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import * as formik from "formik";
 import * as yup from "yup";
-import "./form.scss";
+import "../../styles/form.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { pageLoad, registerUser } from "../../store/slices/formSlice";
+import { pageLoad, registerUser } from "../../services/slices/formSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

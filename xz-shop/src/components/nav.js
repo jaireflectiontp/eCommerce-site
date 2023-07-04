@@ -11,7 +11,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import "./index.scss";
+import "../styles/index.scss";
 const NavigationBar = () => {
   const pro = useSelector((state) => state.cart);
   return (
