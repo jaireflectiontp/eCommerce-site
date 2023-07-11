@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { loginUser } from '../../../services/slices/authSlice';
+import { loginUser } from '../../services/slices/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-
+import '../../assets/styles/form.scss'
 const LoginForm = () => {
     const dispatch = useDispatch();
     const userList = useSelector((state) => state.auth);

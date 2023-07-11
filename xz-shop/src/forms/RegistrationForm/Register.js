@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { registerUser } from '../../../services/slices/authSlice';
+import { registerUser } from '../../services/slices/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
-
+import '../../assets/styles/form.scss'
 const RegistrationForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
