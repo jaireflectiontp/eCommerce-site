@@ -1,0 +1,61 @@
+.g-map-wrapper {
+  width: 100%;
+  height: 400px;
+  .g-map {
+    width: 100%;
+    height: 100%;
+  }
+}
+.contact-container {
+  margin: 30px 0 0;
+  .contact-container-in {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .contact-details,
+    .contact-form {
+      width: 50%;
+      padding: 10px;
+      flex: 1 1 auto;
+    }
+    .contact-form {
+      display: grid;
+      place-items: center;
+      form {
+        display: flex;
+        max-width: 400px;
+        width: 100%;
+        gap: 15px;
+        flex-direction: column;
+        input,
+        textarea {
+          padding: 8px 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+        input[type="submit"] {
+          width: fit-content;
+          padding: 6px 20px;
+          border-color: #337fed;
+          font-weight: bold;
+          background: linear-gradient(#3d94f6, #1e62d0);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: "320px") and (max-width: "670px") {
+  .contact-container {
+    padding: 0 15px;
+  }
+  .contact-container-in {
+    flex-direction: column;
+    .contact-form,
+    .contact-details {
+      width: 100% !important;
+    }
+  }
+}
