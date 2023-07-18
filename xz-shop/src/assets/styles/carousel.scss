@@ -1,0 +1,16 @@
+.carousel {
+  background-color: #ccc;
+  height: 100%;
+}
+
+@media screen and (min-width: "320px") and (max-width: "670px") {
+  .carousel {
+    .carousel-inner {
+      .carousel-item {
+        img {
+          height: 200px !important;
+        }
+      }
+    }
+  }
+}
