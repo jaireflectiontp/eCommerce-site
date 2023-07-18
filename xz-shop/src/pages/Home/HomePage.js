@@ -1,18 +1,11 @@
 import React from "react";
-
-import { Provider } from "react-redux";
-import store from "../../services/store";
-import { Outlet } from "react-router-dom";
-import NavigationBar from "../../components/Navbar/Navbar";
+import CarouselLayout from "../../components/Carousel/Carousel";
+import ProductListingPage from "../ProductListing/ProductListingPage";
 const HomePage = () => {
     return (
         <>
-            <Provider store={store}>
-                <NavigationBar />
-                <main>
-                    <Outlet />
-                </main>
-            </Provider>
+            <section><CarouselLayout /></section>
+            <section><ProductListingPage /></section>
         </>
     );
 };

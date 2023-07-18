@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -14,6 +14,16 @@ import "../../assets/styles/index.scss";
 const NavigationBar = () => {
     const [openNav, setOpenNav] = useState(false)
     const pro = useSelector((state) => state.cart);
+    const [searchText, setSearchText] = useState('')
+    const handleChange = (e) => {
+        setSearchText(e.target.value)
+    }
+    useEffect(() => {
+        const debounce = setTimeout(() => {
+            console.log(searchText)
+        }, 500)
+        return () => clearTimeout(debounce)
+    }, [searchText])
     return (
         <nav>
             <div className="nav-brand">
@@ -61,7 +71,7 @@ const NavigationBar = () => {
             </div>
             <div className="search-bar">
                 <div className="search-control">
-                    <input type="text" placeholder="Search here......" />
+                    <input type="text" placeholder="Search here......" onChange={handleChange} />
                     <span>
                         <SearchIcon />
                     </span>
