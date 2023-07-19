@@ -1,5 +1,6 @@
 {
   "name": "xz-shop",
+  "proxy": "http://localhost:2552",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
