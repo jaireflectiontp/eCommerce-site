@@ -20,7 +20,7 @@ function App() {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />}></Route>
         <Route path="/cart" element={<CartPage />}></Route>
-        <Route path="/product/:title" element={<ProductDetailsPage />}></Route>
+        <Route path="/product/:slug" element={<ProductDetailsPage />}></Route>
         <Route path="/contact" element={<ContactPage />}></Route>
         <Route path="/signup" element={< RegistrationForm />}></Route>
         <Route path="/signin" element={<LoginForm />}></Route>

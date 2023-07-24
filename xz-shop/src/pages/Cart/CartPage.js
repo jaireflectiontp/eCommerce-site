@@ -22,7 +22,7 @@ const CartPage = () => {
                     />
                 </div>
                 <Card.Body>
-                    <Card.Title>{product.title}</Card.Title>
+                    <Card.Title>{product.slug}</Card.Title>
                     <Card.Text>
                         <h4>INR : {product.price}</h4>
                     </Card.Text>

@@ -13,18 +13,18 @@ const ProductCard = (props) => {
                 style={{ width: "18rem", margin: "auto" }}
             >
                 <div className="text-center">
-                    <Link to={`/product/${product.title}`}>
+                    <Link to={`/product/${product.slug}`}>
                         <Card.Img
                             variant="top"
                             src={product.image}
-                            style={{ width: "150px", height: "180px" }}
+                            style={{ width: "100%" }}
                         />
                     </Link>
                 </div>
                 <Card.Body>
                     <Card.Title>
                         {" "}
-                        <Link to={`/product/${product.title}`}>{product.title}</Link>{" "}
+                        <Link className="text-decoration-none text-secondary" style={{ fontSize: '1rem' }} to={`/product/${product.name}`}>{product.name}</Link>{" "}
                     </Card.Title>
                     <Card.Text>
                         <h4>INR : {product.price}</h4>
