@@ -1,26 +1,35 @@
 import Carousel from 'react-bootstrap/Carousel';
-import '../../assets/styles/carousel.scss'
+import '../../assets/styles/carousel.scss';
+import banner1 from "../../assets/images/banner1.webp";
+import banner1_5 from "../../assets/images/banner1_5.webp";
+import banner2 from "../../assets/images/banner2.webp";
+import banner3 from "../../assets/images/banner3.webp";
 function CarouselLayout() {
     return (
         <Carousel>
             <Carousel.Item>
-                <img style={{ width: '100%', height: '400px' }}
-                    className="d-block"
-                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1dIgGp.img?w=700&h=472&m=6"
-                    alt="First slide"
-                />
+                <div className='d-flex'>
+                    <img style={{ width: '50%', height: '400px' }}
+                        src={banner1}
+                        alt="First slide"
+                    />
+                    <img style={{ width: '50%', height: '400px' }}
+                        src={banner1_5}
+                        alt="First slide"
+                    />
+                </div>
             </Carousel.Item>
             <Carousel.Item>
                 <img style={{ width: '100%', height: '400px' }}
                     className="d-block"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
+                    src={banner2}
                     alt="Second slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img style={{ width: '100%', height: '400px' }}
                     className="d-block"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src={banner3}
                     alt="Third slide"
                 />
             </Carousel.Item>
