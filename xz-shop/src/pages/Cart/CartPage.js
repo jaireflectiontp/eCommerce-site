@@ -4,13 +4,19 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../services/slices/cartSlice";
+import emptyCartImg from "../../assets/images/empty-cart.png"
+import { Link } from "react-router-dom";
+import "../../assets/styles/index.scss"
 const CartPage = () => {
     const cartProduct = useSelector((state) => state.cart);
+    const loggedUser = useSelector((state) => state.auth.currentUser)
+
     const dispatch = useDispatch();
     const removeProduct = (id) => {
         console.log(id);
         dispatch(removeFromCart(id));
     };
+
     const productCard = cartProduct.map((product) => (
         <div className="col-md-3" style={{ marginBottom: "20px" }}>
             <Card key={product.id} className="h-100" style={{ width: "18rem" }}>
@@ -37,7 +43,16 @@ const CartPage = () => {
     ));
     return (
         <div>
-            <h1>cart</h1>
+            {
+                productCard.length == 0 &&
+                <div style={{ display: 'grid', placeItems: 'center' }}>
+                    <div className="empty-cart-display">
+                        <img src={emptyCartImg} alt="empty cart" width={'400px'} />
+                        <h4 className="mb-4">Your cart is empty</h4>
+                        <button className="empty-cart-btn"><Link to='/products' >Continue Shopping</Link></button>
+                    </div>
+                </div>
+            }
             {productCard}
         </div>
     );
