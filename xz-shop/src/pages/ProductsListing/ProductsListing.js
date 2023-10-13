@@ -1,5 +1,4 @@
 
-// ProductListing.js
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { applyFilters, fetchProductsAsync, setProducts } from '../../services/slices/productSlice';
@@ -10,12 +9,13 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import { addToCart } from '../../services/slices/cartSlice';
 import { sortProducts } from '../../utils/sortUtils';
 import '../../assets/styles/index.scss'
+import { useNavigate } from 'react-router-dom';
 const Products = () => {
     const dispatch = useDispatch();
     const { productList, loading, error, filteredProductList } = useSelector(state => state.products);
 
     const [sortType, setSortType] = useState('asc');
-
+    const navigate = useNavigate()
     const [filters, setFilters] = useState({
         priceRange: { min: 0, max: 1000 },
         category: '',
@@ -30,7 +30,6 @@ const Products = () => {
 
 
     useEffect(() => {
-        // Apply filters
         let filteredProducts = productList;
 
         if (filters.priceRange) {
@@ -61,10 +60,9 @@ const Products = () => {
             );
         }
 
-        // Sort filtered products
+
         const sortedProducts = sortProducts(filteredProducts, sortType);
 
-        // Update filtered and sorted product list in the Redux store
         dispatch(applyFilters(sortedProducts));
     }, [productList, sortType, filters, dispatch]);
 
@@ -73,13 +71,13 @@ const Products = () => {
         const count = existProduct ? existProduct + 1 : 1;
         console.log(count)
         dispatch(addToCart(product));
+        navigate('/cart')
     };
 
     const handleSortChange = () => {
         const newSortType = sortType === 'asc' ? 'desc' : 'asc';
         setSortType(newSortType);
 
-        // Clone the array before sorting to avoid modifying the original state 
         const sortedProducts = [...productList].sort((a, b) => {
 
             if (sortType === 'asc') {
@@ -88,8 +86,7 @@ const Products = () => {
                 return b.price - a.price;
             }
         });
-        console.log('sort', sortedProducts)
-        // Dispatch action to update the sorted product list in Redux store
+
         dispatch(setProducts(sortedProducts));
     };
     const handleFilterChange = (filterType, value) => {
@@ -111,7 +108,7 @@ const Products = () => {
 
     return (
         <div>
-            <h2>Product Listing</h2>
+
             <div className="filters">
                 <button onClick={handleSortChange} className='product-sort-btn'>
                     Sort by Price ({sortType === 'asc' ? 'Low to High' : 'High to Low'})

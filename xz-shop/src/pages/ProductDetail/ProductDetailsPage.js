@@ -11,6 +11,8 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { addToCart } from '../../services/slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import ErrorComp from '../../components/common/ErrorComp';
+import LoadingComp from '../../components/common/LoadingComp';
 const ProductDetailsPage = () => {
     const dispat = useDispatch()
     const params = useParams();
@@ -57,9 +59,9 @@ const ProductDetailsPage = () => {
     return (
         <Container className='py-4'>{
             loading ?
-                (<h2 className='spinner-border'></h2>)
+                (<LoadingComp />)
                 : error ?
-                    (<h2>{error}</h2>)
+                    (<ErrorComp variant='danger' error={error} />)
                     : (
 
                         <Row>
@@ -82,6 +84,13 @@ const ProductDetailsPage = () => {
                                                 {
                                                     product.tags.oversized &&
                                                     <Badge style={{ borderRadius: '0' }} bg="secondary">{product.tags.oversized}</Badge>
+                                                }{
+                                                    product.tags.boyfriend &&
+                                                    <Badge style={{ borderRadius: '0' }} bg="secondary">{product.tags.boyfriend}</Badge>
+                                                }
+                                                {
+                                                    product.tags.plus &&
+                                                    <Badge style={{ borderRadius: '0' }} bg="secondary">{product.tags.plus}</Badge>
                                                 }
                                                 &nbsp;
                                                 <Badge style={{ borderRadius: '0' }} bg="info">{product.tags.cotton}</Badge>
