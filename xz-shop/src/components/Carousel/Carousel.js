@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../../assets/styles/carousel.scss';
 import banner1 from "../../assets/images/banner1.webp";
 import banner1_5 from "../../assets/images/banner1_5.webp";
-import banner2 from "../../assets/images/banner2.webp";
+import banner2 from "../../assets/images/banner_.jpg";
 import banner3 from "../../assets/images/banner3.webp";
 function CarouselLayout() {
     return (
