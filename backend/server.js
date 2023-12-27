@@ -15,7 +15,18 @@ app.get('/api/products/slug/:slug', (req, res) => {
         res.status(404).send({ message: 'never got product' })
     }
 });
+app.get('/api/products/:query', (req, res) => {
+    const searchQuery = req.params.query;
+    const searchResults = data.products.filter(product =>
+        product.name.toLowerCase().includes(searchQuery)
+    );
 
+    if (searchResults.length > 0) {
+        res.send(searchResults);
+    } else {
+        res.status(404).send({ message: 'No products found matching the search query' });
+    }
+});
 const port = process.env.PORT || 2552;
 
 app.listen(port, () => {

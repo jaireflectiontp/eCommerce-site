@@ -1,4 +1,3 @@
-
 export const sortProducts = (products, sortType) => {
     const sortedProducts = [...products];
     if (sortType === 'asc') {

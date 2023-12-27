@@ -69,7 +69,6 @@ const Products = () => {
     const addProduct = (product) => {
         const existProduct = productList.find(x => x.id === product.id)
         const count = existProduct ? existProduct + 1 : 1;
-        console.log(count)
         dispatch(addToCart(product));
         navigate('/cart')
     };
@@ -123,9 +122,9 @@ const Products = () => {
                             onChange={e => handleFilterChange('priceRange', { ...filters.priceRange, min: e.target.value })}
                         >
                             <option value="0">Min Price</option>
-                            <option value="400">100</option>
-                            <option value="200">200</option>
-                            {/* Add other price options as needed */}
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <option value="500">500</option>
                         </select>
                         -
                         <select
@@ -133,18 +132,17 @@ const Products = () => {
                             onChange={e => handleFilterChange('priceRange', { ...filters.priceRange, max: e.target.value })}
                         >
                             <option value="1000">Max Price</option>
-                            <option value="490">490</option>
-                            <option value="1000">1000</option>
-                            {/* Add other price options as needed */}
+                            <option value="1200">1200</option>
+                            <option value="1500">1500</option>
+                            <option value="2000">2000</option>
                         </select>
                     </div>
                     <div className='filter-control'>
 
                         <select value={filters.category} onChange={e => handleFilterChange('category', e.target.value)}>
                             <option value="">All Categories</option>
-                            <option value="men">men</option>
-                            <option value="women">women</option>
-                            {/* Add other category options as needed */}
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
                         </select>
                     </div>
                     <div className='filter-control'>
@@ -152,25 +150,27 @@ const Products = () => {
                         <select value={filters.clothingType} onChange={e => handleFilterChange('clothingType', e.target.value)}>
                             <option value="">All clothingType</option>
                             <option value="tshirt">Tshirt</option>
-                            <option value="hoodie">hoodie</option>
-                            {/* Add other category options as needed */}
+                            <option value="hoodie">Hoodie</option>
                         </select>
                     </div>
                     <div className='filter-control'>
 
                         <select value={filters.design} onChange={e => handleFilterChange('design', e.target.value)}>
                             <option value="">All Design</option>
-                            <option value="solid">solid</option>
-                            <option value="printed">printed</option>
-                            {/* Add other category options as needed */}
+                            <option value="solid">Solid</option>
+                            <option value="printed">Printed</option>
                         </select>
                     </div>
                     <div className='filter-control'>
 
                         <select value={filters.brand} onChange={e => handleFilterChange('brand', e.target.value)}>
                             <option value="">All Brands</option>
-                            <option value="nike">nike</option>
-                            <option value="adibas">adibas</option>
+                            <option value="nike">Nike</option>
+                            <option value="adidas">Adidas</option>
+                            <option value="zara">Zara</option>
+                            <option value="puma">Puma</option>
+                            <option value="h&m">H&M</option>
+                            <option value="supreme">Supreme</option>
                         </select>
 
                     </div>
@@ -184,7 +184,7 @@ const Products = () => {
                         :
                         (<>
 
-                            <Row className="product-container">
+                            <Row className="product-container" style={{ marginTop: '4em' }}>
                                 <div className="products" style={{ padding: '15px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>{productCard}</div>
                             </Row>
 

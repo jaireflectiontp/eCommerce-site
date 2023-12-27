@@ -1,12 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Container, Rating } from '@mui/material';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { addToCart } from '../../services/slices/cartSlice';
@@ -14,7 +13,8 @@ import { useDispatch } from 'react-redux';
 import ErrorComp from '../../components/common/ErrorComp';
 import LoadingComp from '../../components/common/LoadingComp';
 const ProductDetailsPage = () => {
-    const dispat = useDispatch()
+    const dispatchProduct = useDispatch()
+    const navigate = useNavigate()
     const params = useParams();
     const { slug } = params
     console.log('myproffduct', slug)
@@ -55,6 +55,11 @@ const ProductDetailsPage = () => {
     useEffect(() => {
         fetchData();
     }, [slug]);
+
+    const addProductToCart = (product) => {
+        dispatchProduct(addToCart(product))
+        navigate("/cart")
+    }
 
     return (
         <Container className='py-4'>{
@@ -110,7 +115,7 @@ const ProductDetailsPage = () => {
                                         product.totalInStock > 0 &&
                                         <ListGroup.Item style={{ marginTop: '1rem' }}>
                                             <Row>
-                                                <Col><Button onClick={() => dispat(addToCart(product))} className='w-100' style={{ backgroundColor: '#ffd84d', color: '#000', fontWeight: '500' }} variant="primary"> ADD TO CART</Button></Col>
+                                                <Col><Button onClick={() => addProductToCart(product)} className='w-100' style={{ backgroundColor: '#ffd84d', color: '#000', fontWeight: '500' }} variant="primary"> ADD TO CART</Button></Col>
                                                 <Col> <Button className='w-100' variant="outline-secondary"><FavoriteBorderIcon /> WISHLIST</Button></Col>
                                             </Row>
                                         </ListGroup.Item>

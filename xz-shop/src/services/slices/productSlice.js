@@ -1,4 +1,4 @@
-// productSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchProducts } from '../../utils/api';
 

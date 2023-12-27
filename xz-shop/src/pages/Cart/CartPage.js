@@ -8,9 +8,13 @@ import "../../assets/styles/index.scss"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+
 const CartPage = () => {
     const cartProduct = useSelector((state) => state.cart.cartProducts);
     const cartTotal = useSelector((state) => state.cart);
+
+    const loggedUser = useSelector((state) => state.auth.currentUser)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getCartTotal());
@@ -25,14 +29,14 @@ const CartPage = () => {
     const removeQuantity = (product) => {
         dispatch(decreaseCart(product))
     }
-    console.log(cartTotal.cartTotalotalQuantity, cartTotal.cartTotalotalAmount);
+    console.log(cartTotal, cartTotal.cartTotalQuantity, cartTotal.cartTotalAmount);
 
     const productCard = cartProduct.map((product) => (
         <div className="col-md-3" style={{ marginBottom: "20px" }}>
             <div className="cart-product-wrapper">
                 <div className="cart-col">
                     <Link to={`/product/${product.slug}`}> <img src={product.image} alt={product.slug} style={{ width: "150px", height: "180px" }} /></Link></div>
-                <div className="cart-col text-start"><Link className="text-decoration-none" to={`/product/${product.slug}`}>{product.slug}</Link></div>
+                <div className="cart-col text-start"><Link style={{ color: "black" }} className="text-decoration-none" to={`/product/${product.slug}`}>{product.slug}</Link></div>
                 <div className="cart-col design-type"><span className="product-tags">{product.clothingType}</span> <span className="product-tags">{product.design}</span></div>
                 <div className="cart-col">
                     <div className="quantity-control">
@@ -59,9 +63,10 @@ const CartPage = () => {
                             {productCard}
                         </div>
                         <div className="cartSubTotal">
-                            <p><span>Cart Subtotal:</span><span>&#8377; {cartTotal.cartTotalotalAmount}</span></p>
-                            <div><Link to='/checkout'>Checkout</Link></div>
-                            <button><Link to='/products'>Continue shopping</Link></button>
+                            <p><span>Cart Subtotal:</span><span>&#8377; {cartTotal.cartTotalAmount}</span></p>
+                            <div className="checkout-btn"><Link className="text-decoration-none" to={`${loggedUser ? '/checkout' : '/signin'}`} >
+                                <ShoppingCartCheckoutIcon className="checkout-icon" />Checkout</Link></div>
+                            <button><Link className="text-decoration-none" to='/products'>Continue shopping</Link></button>
                         </div>
                     </div>
                     :

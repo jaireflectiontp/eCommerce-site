@@ -3,14 +3,17 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import "../../assets/styles/index.scss"
 const ProductCard = (props) => {
+
     const { product, addProduct } = props;
+
     return (
         <div>
             <Card
                 key={product.id}
-                className="h-100"
-                style={{ width: "18rem", margin: "auto" }}
+                className="productCard"
+                style={{ width: "18rem", margin: "auto", height: "568px!important" }}
             >
                 <div className="text-center">
                     <Link to={`/product/${product.slug}`}>

@@ -1,3 +1,21 @@
+.formPage {
+  max-width: 1300px;
+  width: 100%;
+  margin-inline: auto;
+  background-color: #fff;
+  .illustration,
+  .formControl {
+    width: 50%;
+  }
+  .illustration {
+    display: grid;
+    place-items: center;
+    img {
+      width: 420px;
+      height: 420px;
+    }
+  }
+}
 .formControl {
   max-width: 600px;
   width: 100%;

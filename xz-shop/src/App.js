@@ -14,13 +14,14 @@ import ContactPage from "./pages/Contact/ContactPage";
 import RootLayout from "./components/RootLayout/RootLayout";
 import HomePage from "./pages/Home/HomePage";
 import ProductDetailsPage from "./pages/ProductDetail/ProductDetailsPage";
-//import ProductListingPage from "./pages/ProductListing/ProductListingPage";
 import AccountPage from "./pages/Account/AccountPage";
 import Products from "./pages/ProductsListing/ProductsListing";
 import Profile from "./components/Profile/Profile";
 import Address from "./components/Address/Address";
 import Checkout from "./pages/Checkout/Checkout";
+
 function App() {
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
