@@ -93,4 +93,4 @@ At the order summary stage, users are presented with a comprehensive overview: a
 
 At the end, there's a simple user interface for the contact page featuring a map and a contact form.
 
-![contact page](frontend\public\contact_ss.jpeg)
+![Contact page](frontend\public\contact_ss.jpeg)
