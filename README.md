@@ -42,55 +42,55 @@ This project boasts a range of key features:
 
 Here's a simple sign-up page that I've implemented. I've employed Redux Toolkit for streamlined state management and Formik to handle form errors and submissions.
 
-![Home page](frontend\public\signup_ss.jpeg)
+![SignUp page](frontend\public\signup_ss.jpeg)
 
 ## SignIn Page:
 
 We implemented the sign-in functionality in a similar manner.
 
-![Home page](frontend\public\signin_ss.jpeg)
+![SignIn page](frontend\public\signin_ss.jpeg)
 
 ## Account Page:
 
 Upon logging in, users gain access to an account section where they can view and manage their details. Additionally, they have the option to easily log out when needed.
 
-![Home page](frontend\public\account_ss.jpeg)
+![Account page](frontend\public\account_ss.jpeg)
 
 ## Products Page:
 
 All the products displayed here are sourced from a server I personally created. I developed an **API** that contains comprehensive product details, distinct categories, associated filters, and image links. The entire webpage is constructed from various components, each serving distinct functionalities. Moreover, I've integrated utility functions for efficient filtering and sorting processes.
 
-![Home page](frontend\public\products_ss.jpeg)
+![ProductsListing page](frontend\public\products_ss.jpeg)
 
 ## Product Details Page:
 
 The section comprises comprehensive product details and vivid descriptions
 
-![Home page](frontend\public\productdetail_ss.jpeg)
+![Product Details page](frontend\public\productdetail_ss.jpeg)
 
 ## Cart Page:
 
 On the cart page, we can view the products added along with their quantities displayed in the navigation. Additionally, the cart page shows the total sum of all product prices,
 Also users have the ability to adjust the quantity of products and proceed to checkout.
 
-![Home page](frontend\public\cartpage_ss.jpeg)
+![Cart page](frontend\public\cartpage_ss.jpeg)
 
 ## Checkout Page:
 
 At the checkout, the initial step involves entering the address information, without completing this step, users won't be able to proceed further."
 
-![Home page](frontend\public\checkout_ss.jpeg)
+![Checkout page](frontend\public\checkout_ss.jpeg)
 
 The subsequent step involves the payment stage, where users are required to input their card details.
 
-![Home page](frontend\public\checkoutPayment_ss.jpeg)
+![Payment stage](frontend\public\checkoutPayment_ss.jpeg)
 
 At the order summary stage, users are presented with a comprehensive overview: all cart products, the shipping address, payment details, and the total amount. <br> And at this point, they're ready to place their order!
 
-![Home page](frontend\public\orderSummary_ss.jpeg)
+![Order summary](frontend\public\orderSummary_ss.jpeg)
 
 ## Contact page
 
 At the end, there's a simple user interface for the contact page featuring a map and a contact form.
 
-![Home page](frontend\public\contact_ss.jpeg)
+![contact page](frontend\public\contact_ss.jpeg)
