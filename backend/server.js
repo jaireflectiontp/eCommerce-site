@@ -2,11 +2,6 @@ import express from 'express';
 import { data } from './data.js';
 const app = express();
 
-app.use(express.static("../frontend/build"))
-app.get("*", (req, res) => {
-    res.sendFile("../frontend/public/index.html")
-})
-
 app.get('/api/products/', (req, res) => {
     res.send(data.products)
 });
