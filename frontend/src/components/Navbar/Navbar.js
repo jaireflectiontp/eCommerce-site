@@ -13,18 +13,15 @@ const Header = () => {
 
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchText, setSearchText] = useState('')
-    const [searchedProduct, setSearchedProduct] = useState('')
+    const [searchedProduct, setSearchedProduct] = useState()
     const totalCartProducts = useSelector((state) => state.cart.cartTotalQuantity);
     const currentUser = useSelector((state) => state.auth.currentUser);
-    const [lastSegment, setLastSegment] = useState('');
 
     const location = useLocation();
     const currentPath = location.pathname;
     const toggleSearch = () => {
         setSearchOpen(!searchOpen);
     };
-
-
     const handleChange = (e) => {
         setSearchText(e.target.value)
     }
@@ -34,13 +31,12 @@ const Header = () => {
         try {
             const response = await axios.get(`/api/products/${searchText}`);
             const result = await response.data
-            console.log(result)
+            console.log('res', result)
             setSearchedProduct(result)
         } catch (err) {
             console.log(err)
         }
     };
-
 
     useEffect(() => {
         const debounce = setTimeout(() => {
@@ -59,7 +55,9 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto align-items-center mx-3">
-                        <Nav.Link className='nav-links' as={NavLink} to="/products" >Products</Nav.Link>
+                        <Nav.Link className='nav-links' as={NavLink} to="/products" >
+                            Products
+                        </Nav.Link>
 
                     </Nav>
                     <Nav>
@@ -78,19 +76,32 @@ const Header = () => {
                 </Navbar.Collapse>
             </Container>
             <Form className={`d-lg-flex justify-content-center align-items-center position-relative ${searchOpen ? 'd-block' : 'd-none'}`}>
-                <FormControl type="text" placeholder="Search here......" onBlur={(e) => [setSearchText(null), e.target.value = '']} onChange={handleChange} style={{ width: '300px' }} className="mr-sm-2 mb-2 mb-lg-0" />
+                <FormControl
+                    type="text"
+                    placeholder="Search here......"
+                    onBlur={(e) => e.target.value = ''}
+                    onChange={handleChange} style={{ width: '300px' }}
+                    className="mr-sm-2 mb-2 mb-lg-0" />
+
                 <Button variant="outline-success" className="mr-2">Search</Button>
                 <div className={`position-absolute search-suggestion ${searchText ? 'd-block' : 'd-none'}`} style={{ width: '300px' }}>
                     <div className='d-flex flex-column gap-2'>
                         {
                             searchedProduct && searchedProduct?.map((item) => {
-                                return <Link onClick={() => setSearchText('')} className="w-100 text-decoration-none d-flex align-items-center" to={`product/${item.slug}`}><img src={item.image} width={50} height={50} /> <span style={{ width: 'calc(100%-50px)', fontSize: '0.9rem', paddingLeft: '8px' }}>{item.name}</span></Link>
+                                return <NavLink onClick={() => setSearchText('')}
+                                    className="w-100  d-flex align-items-center text-decoration-none"
+                                    to={`/product/${item.slug}`}>
+                                    <img src={item.image} width={50} height={50} />
+                                    <span style={{ width: 'calc(100%-50px)', fontSize: '0.9rem', paddingLeft: '8px' }}>
+                                        {item.name}
+                                    </span>
+                                </NavLink>
                             })
                         }
                     </div>
                 </div>
             </Form>
-        </Navbar>
+        </Navbar >
     );
 };
 
