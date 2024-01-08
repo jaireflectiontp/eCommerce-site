@@ -38,15 +38,13 @@
   text-align: left;
   background-color: #fff;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.28);
-  height: 400px;
+  max-height: 400px;
   overflow-y: scroll;
   z-index: 2 !important;
   div a {
     color: black;
   }
 }
-
-//
 
 .filters {
   display: flex;

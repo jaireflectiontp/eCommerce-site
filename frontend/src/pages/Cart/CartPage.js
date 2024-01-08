@@ -3,7 +3,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { addToCart, decreaseCart, getCartTotal, removeFromCart } from "../../services/slices/cartSlice";
 import emptyCartImg from "../../assets/images/empty-cart.png"
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../assets/styles/index.scss"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddIcon from '@mui/icons-material/Add';
