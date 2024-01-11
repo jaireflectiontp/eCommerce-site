@@ -12,6 +12,7 @@ import { addToCart } from '../../services/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import ErrorComp from '../../components/common/ErrorComp';
 import LoadingComp from '../../components/common/LoadingComp';
+import { BASE_URL } from '../../constants';
 const ProductDetailsPage = () => {
     const dispatchProduct = useDispatch()
     const navigate = useNavigate()

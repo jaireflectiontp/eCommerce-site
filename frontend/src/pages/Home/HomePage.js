@@ -3,6 +3,7 @@ import CarouselLayout from "../../components/Carousel/Carousel";
 import "../../assets/styles/index.scss"
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../constants";
 const HomePage = () => {
     const [products, setproducts] = useState()
     const fetchData = async () => {

@@ -8,7 +8,7 @@ import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import "../../assets/styles/index.scss";
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-
+import { BASE_URL } from '../../constants';
 const Header = () => {
 
     const [searchOpen, setSearchOpen] = useState(false);
