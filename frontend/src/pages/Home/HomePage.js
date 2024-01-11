@@ -7,8 +7,12 @@ import { BASE_URL } from "../../constants";
 const HomePage = () => {
     const [products, setproducts] = useState()
     const fetchData = async () => {
-        const response = await axios.get(`/api/products`);
-        setproducts(response.data)
+        try {
+            const response = await axios.get(`/api/products`);
+            setproducts(response.data)
+        } catch (error) {
+            console.log(`ERROR HAS OCCURED: ${error}`);
+        }
     }
     console.log(products);
     const sHoodie = products?.find((item) => item.clothingType === 'hoodie' && item.design === 'solid')
