@@ -8,6 +8,7 @@ import Account from "./Account";
 import Wishlist from "./Wishlist";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import ForgotPassword from './ForgotPassword'
 export {
     Home,
     ProductDetails,
@@ -18,5 +19,6 @@ export {
     Account,
     Wishlist,
     SignIn,
-    SignUp
+    SignUp,
+    ForgotPassword
 }

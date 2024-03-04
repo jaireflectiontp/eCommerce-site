@@ -4,7 +4,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Account, Cart, Checkout, Contact, Home, ProductDetails, Products, SignIn, SignUp, Wishlist } from "./pages";
+import { Account, Cart, Checkout, Contact, ForgotPassword, Home, ProductDetails, Products, SignIn, SignUp, Wishlist } from "./pages";
 import RootLayout from "./layouts/RootLayout";
 import './App.css'
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/account" element={<Account />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Route>
     )
