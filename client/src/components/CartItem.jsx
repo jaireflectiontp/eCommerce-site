@@ -1,28 +1,35 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom"
+
 
 const CartItem = () => {
     return (
-        <li className="mb-5 pb-5 flex items-center border-b-[1px] border-gray-400">
-            <a href="#" className="flex-1 basis-1/5">
-                <img src="https://healthjade.com/wp-content/uploads/2017/10/apple-fruit.jpg"
-                    className="w-[75px] h-[75px]"
-                    alt="" />
-            </a>
-            <div className="h-[86px] flex flex-col flex-1 basis-[70%] pl-4 relative">
-                <a href="#" className="pr-7">sdfsdfdsfsdfsd</a>
-                <span>ssdfsdfsdfsdf</span>
-                <div className="mt-1">
-                    <div className="h-[30px] w-24 flex items-center justify-evenly border border-slate-800 rounded">
-                        <button>+</button>
-                        <input type="text" className="w-[30px]" />
-                        <button>-</button>
-                    </div>
+        <tr>
+            <td className="py-[25px] px-[14px] w-2/4">
+                <Link className="flex gap-3 items-center" to='/'>
+                    <img src="https://th.bing.com/th/id/R.a191c95019c9c3e1abdd5c26a4271516?rik=SzTEa5RlQGMnZQ&pid=ImgRaw&r=0"
+                        alt="product-1"
+                        className="w-[60px] h-[60px]"
+                    />
+                    Organic Lemon
+                </Link>
+            </td>
+            <td className="py-[25px] px-[14px]">
+                <span >$56.00</span>
+            </td>
+            <td className="py-[25px] px-[14px]">
+                <div className="h-[30px] w-[80px] mx-auto flex items-center justify-evenly border border-slate-800 rounded">
+                    <button>+</button>
+                    <input type="text" className="w-[30px] text-center" placeholder="." value='1' />
+                    <button>-</button>
                 </div>
-
-                <button className="w-7 h-4 text-xs absolute top-0 right-0 text-red-600"><FontAwesomeIcon icon={faXmark} /></button>
-            </div>
-        </li>
+            </td>
+            <td className="py-[25px] px-[14px]">$56.00</td>
+            <td className="py-[25px] px-[14px] text-center">
+                <button><FontAwesomeIcon icon={faTrashCan} /></button>
+            </td>
+        </tr>
     )
 }
 
