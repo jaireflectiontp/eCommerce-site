@@ -8,7 +8,7 @@ const ForgotPass = () => {
             <div className="p-7 border-[1px] rounded-md">
                 <h2 className="flex text-2xl mb-8 justify-center gap-1"><img src={passForgot} style={{ width: '35px', height: '35px' }} alt="" />Forgot Password</h2>
                 <form className="space-y-6 " action="#" method="POST">
-                    <div className="sm:w-[340px]">
+                    <div className="sm:w-[340px] w-80">
                         <div className="mb-6">
                             <label className="block text-base font-medium leading-6 text-gray-900">Email Address*</label>
                             <div className="mt-2">
