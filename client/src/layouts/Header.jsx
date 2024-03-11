@@ -1,14 +1,15 @@
 import { useState } from "react"
 import { flag, logo } from "../assets/assets"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping, faHeart, faMagnifyingGlass, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { CartItem } from "../components"
+import { SideBarCartItem } from "../components"
 import '../App.css'
 const Header = () => {
     const [showSearchTab, setShowSearchTab] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [isCartOpen, setIsCartOpen] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <>
@@ -51,12 +52,12 @@ const Header = () => {
                     <nav className={`header-navigation sm:bg-transparent bg-primary absolute sm:static top-0 left-0 w-3/4 sm:w-auto h-full sm:h-auto z-20 ${isOpen ? 'block' : 'hidden sm:block'}`}>
                         <div className="sm:hidden flex justify-between items-center py-8 px-6 border-b-[1px]"><span>Menu</span> <button onClick={() => setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} /></button></div>
                         <ul className="flex gap-1 sm:gap-6 sm:flex-row flex-col p-8 sm:p-0">
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">Home</a></li>
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">Products</a></li>
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">About Us</a></li>
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">Contact Us</a></li>
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">Faq</a></li>
-                            <li className="border-b-[1px] sm:border-b-0"><a href="#" className="px-2 py-3 inline-block sm:inline">Policy</a></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/' className="px-2 py-3 inline-block sm:inline">Home</Link></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/products' className="px-2 py-3 inline-block sm:inline">Products</Link></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/about' className="px-2 py-3 inline-block sm:inline">About Us</Link></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/contact' className="px-2 py-3 inline-block sm:inline">Contact Us</Link></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/faq' className="px-2 py-3 inline-block sm:inline">Faq</Link></li>
+                            <li className="border-b-[1px] sm:border-b-0"><Link to='/policy' className="px-2 py-3 inline-block sm:inline">Policy</Link></li>
                         </ul>
                     </nav>
                     <div className="hidden sm:flex gap-1"><img src={flag} alt="" className="w-5" />+91 8822000454</div>
@@ -72,12 +73,14 @@ const Header = () => {
                             <button className="px-4" onClick={() => setIsCartOpen(false)}><FontAwesomeIcon icon={faXmark} /></button>
                         </div>
                         <ul className="cartItem_list overflow-y-scroll h-[85%]">
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
+                            <SideBarCartItem />
                         </ul>
                     </div>
                     <div className="h-1/4 border-t-[1px] border-gray-400 px-3">
@@ -88,7 +91,9 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="flex justify-between">
-                            <button type="button" className="inline-flex items-center rounded-md bg-primary px-5 py-[10px] text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button type="button"
+                                onClick={() => [navigate('/cart'), setIsCartOpen(false)]}
+                                className="inline-flex items-center rounded-md bg-primary px-5 py-[10px] text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                 View Cart
                             </button>
                             <button type="button" className="inline-flex items-center rounded-md bg-transparent px-5 py-[10px] text-sm font-semibold border-[1px] border-primary hover:border-black text-primary hover:text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

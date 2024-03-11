@@ -7,3 +7,10 @@
 .accountTab:hover>ul{
 display: block !important;
 }
+
+.cartItem_list::-webkit-scrollbar {
+  display: none;
+}
+.cartItem_list li:last-child{
+  border: none;
+}
