@@ -16,7 +16,7 @@ const Contact = () => {
                 <div className="flex">
                     <div className="px-3 mb-6 flex-1">
                         <div className="p-6 text-center border-[1px] border-light rounded-md overflow-hidden">
-                            <div className="text-primary"><FontAwesomeIcon icon={faPhone} /></div>
+                            <div className="text-primary text-3xl"><FontAwesomeIcon icon={faPhone} /></div>
                             <div className="font-normal">
                                 <h4 className="text-lg font-bold">Contact</h4>
                                 <p>(+91)-9876XXXXX</p>
@@ -26,7 +26,7 @@ const Contact = () => {
                     </div>
                     <div className="px-3 mb-6 flex-1">
                         <div className="p-6 text-center border-[1px] border-light rounded-md overflow-hidden">
-                            <div className="text-primary"><FontAwesomeIcon icon={faEnvelope} /></div>
+                            <div className="text-primary text-3xl"><FontAwesomeIcon icon={faEnvelope} /></div>
                             <div className="font-normal">
                                 <h4 className="text-lg font-bold">Mail & Website</h4>
                                 <p>mail.example@gmail.com</p>
@@ -36,7 +36,7 @@ const Contact = () => {
                     </div>
                     <div className="px-3 mb-6 flex-1">
                         <div className="p-6 text-center border-[1px] border-light rounded-md overflow-hidden">
-                            <div className="text-primary"><FontAwesomeIcon icon={faLocationDot} /></div>
+                            <div className="text-primary text-3xl"><FontAwesomeIcon icon={faLocationDot} /></div>
                             <div className="font-normal">
                                 <h4 className="text-lg font-bold">Address</h4>
                                 <p> 140 Ruami Moraes Filho, 987 - Salvador - MA, 40352, Brazil.</p>
