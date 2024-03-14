@@ -3,18 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom"
 import '../App.css'
 
-const ProductCard = () => {
+const ProductCard = (props) => {
+    const { openModal, setOpenModal, img, key } = props
     return (
-        <div className="card mb-6 px-3 w-full sm:w-1/2 lg:w-1/4">
+        <div key={key} className="card mb-6 px-3 w-full sm:w-1/2 lg:w-1/4">
             <div className="p-3 border-[1px] border-secondary rounded-[5px] flex flex-col h-full">
                 <div className="relative productImg">
                     <div className="w-full h-full flex justify-center items-center rounded-[5px]">
-                        <img src="https://th.bing.com/th/id/OIP.yBhNWRpWUIeADG1rpWs6WQHaFS?w=256&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                        <img src={img}
                             className="w-full h-full rounded-[5px] aspect-square"
                             alt="" />
                     </div>
                     <div className="viewTab grid gap-[5px] z-20 absolute top-3 right-[-50px] opacity-0">
-                        <button className="border-[1px] border-secondary focus:border-primary rounded-full w-[35px] h-[35px] text-primary focus:text-white bg-white focus:bg-primary">
+                        <button
+                            onClick={() => setOpenModal(true)}
+                            className="border-[1px] border-secondary focus:border-primary rounded-full w-[35px] h-[35px] text-primary focus:text-white bg-white focus:bg-primary">
                             <FontAwesomeIcon icon={faEye} />
                         </button>
                         <button className="border-[1px] border-secondary focus:border-primary rounded-full w-[35px] h-[35px] text-primary focus:text-white bg-white focus:bg-primary">
